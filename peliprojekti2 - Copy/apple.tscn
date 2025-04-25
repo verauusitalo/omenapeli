@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://qs5so61r0mqj"]
+
+[ext_resource type="Script" path="res://Apple.cs" id="1_kpcsx"]
+[ext_resource type="Texture2D" uid="uid://bx8pthdmgbreu" path="res://apple.png" id="1_whdkv"]
+
+[node name="Apple" type="Area2D"]
+script = ExtResource("1_kpcsx")
+
+[node name="Apple" type="Sprite2D" parent="."]
+position = Vector2(91, 58)
+scale = Vector2(0.0117756, -0.0157188)
+texture = ExtResource("1_whdkv")
+offset = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
