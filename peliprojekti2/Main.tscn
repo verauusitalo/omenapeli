@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmh6k825d22vy"]
+
+[ext_resource type="Script" path="res://Main.cs" id="1_40q8i"]
+[ext_resource type="Script" path="res://Player.cs" id="2_o48uk"]
+[ext_resource type="PackedScene" uid="uid://qs5so61r0mqj" path="res://apple.tscn" id="2_sv077"]
+[ext_resource type="Texture2D" uid="uid://dy3v0fjuhk7rx" path="res://frog.jpeg" id="2_tbj1p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ej288"]
+size = Vector2(230, 191)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_40q8i")
+AppleScene = ExtResource("2_sv077")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(50, 50)
+scale = Vector2(0.00277008, 0.00236053)
+script = ExtResource("2_o48uk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(329, 243.5)
+rotation = 3.14159
+scale = Vector2(9.10962, 1.56216)
+shape = SubResource("RectangleShape2D_ej288")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(24909, 18639.9)
+texture = ExtResource("2_tbj1p")
+offset = Vector2(10, 10)
+
+[node name="Score" type="CanvasLayer" parent="."]
+
+[node name="score" type="Label" parent="Score"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -61.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "Score: 0
+"
+horizontal_alignment = 2
+
+[node name="time" type="Label" parent="Score"]
+offset_right = 65.0
+offset_bottom = 23.0
+scale = Vector2(0.967788, 0.978788)
+text = "Time: 60"
+
+[node name="Apple" parent="." instance=ExtResource("2_sv077")]
+
+[node name="Timer" type="Timer" parent="."]
